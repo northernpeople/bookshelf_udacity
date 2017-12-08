@@ -30,4 +30,4 @@ class BookSearch extends React.Component {
   )
   }
 }
-export default BookSearch
+export default BookSearch;
