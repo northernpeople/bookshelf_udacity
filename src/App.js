@@ -21,7 +21,13 @@ class BooksApp extends React.Component {
   changeCategory = (book, event) => {
       console.log(book);
       console.log(event.target.value);
-      this.setState({ books: [] }  );
+      var booksNew = this.state.books.slice(0);
+      for(var i = 0; i < booksNew.length; i++){
+        if(booksNew[i].id === book.id){
+          booksNew[i].shelf = event.target.value;
+        }
+      }
+     this.setState({ books: booksNew }  );
     };
 
 
