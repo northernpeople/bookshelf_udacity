@@ -18,6 +18,13 @@ class BooksApp extends React.Component {
   }
 
 
+  changeCategory = (book, event) => {
+      console.log(book);
+      console.log(event.target.value);
+      this.setState({ books: [] }  );
+    };
+
+
   componentDidMount() {
     BooksAPI.getAll().then( (books) => { this.setState({ books }) } )
   }
@@ -26,7 +33,7 @@ class BooksApp extends React.Component {
     console.log(this.state.books)
     return (
       <div className="app">
-        {this.state.showSearchPage ? ( <BookSearch/> ) : ( <Shelfs books={this.state.books}/> ) }
+        {this.state.showSearchPage ? ( <BookSearch/> ) : ( <Shelfs books={this.state.books} changeCategory={this.changeCategory} />) }
       </div>
     )
   }

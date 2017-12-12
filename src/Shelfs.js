@@ -18,9 +18,9 @@ class Shelfs extends React.Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content"><div>
-            <Shelf books={currently} bookshelfTitle="Currently Reading" />
-            <Shelf books={wantTo} bookshelfTitle="Want to Read"/>
-            <Shelf books={read}  bookshelfTitle="Read"/>
+            <Shelf books={currently} bookshelfTitle="Currently Reading" changeCategory={this.props.changeCategory}/>
+            <Shelf books={wantTo} bookshelfTitle="Want to Read" changeCategory={this.props.changeCategory}/>
+            <Shelf books={read}  bookshelfTitle="Read" changeCategory={this.props.changeCategory}/>
         </div></div>
         <div className="open-search">
           <a>Add a book</a>
