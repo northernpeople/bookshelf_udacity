@@ -1,6 +1,8 @@
 import React from 'react';
 import * as BooksAPI from './BooksAPI';
 import Shelf from "./Shelf.js";
+import { Link } from 'react-router-dom'
+
 
 
 import './App.css'
@@ -20,8 +22,7 @@ class BookSearch extends React.Component {
            }
         );
     }
-    console.log(this.state)
-
+    console.log(this.state);
   }
 
 
@@ -29,7 +30,12 @@ class BookSearch extends React.Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+
+        <Link
+          className="close-search"
+          to='/'
+        >Close</Link>
+
           <div className="search-books-input-wrapper">
             <input type="text" placeholder="Search by title or author"
               value={this.state.query}
@@ -38,7 +44,7 @@ class BookSearch extends React.Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            <Shelf books={this.state.books} bookshelfTitle="Found:" changeCategory={this.props.changeCategory}/>
+            <Shelf books={this.state.books} bookshelfTitle="" changeCategory={this.props.changeCategory}/>
           </ol>
         </div>
       </div>

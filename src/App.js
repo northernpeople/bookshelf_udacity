@@ -1,4 +1,6 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
+
 import * as BooksAPI from './BooksAPI'
 import BookSearch from "./BookSearch.js"
 import Shelfs from "./Shelfs.js"
@@ -38,8 +40,14 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        { this.state.showSearchPage ?  ( <BookSearch changeCategory={this.changeCategory}/> )
-                                    :  ( <Shelfs books={this.state.books} changeCategory={this.changeCategory} />) }
+
+        <Route exact path='/search' render={() => (
+          <BookSearch changeCategory={this.changeCategory}/>
+        )}/>
+        <Route path='/' render={() => (
+          <Shelfs books={this.state.books} changeCategory={this.changeCategory} />
+        )}/>
+
       </div>
     )
   }

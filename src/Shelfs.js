@@ -1,5 +1,6 @@
 import React from 'react'
 import Shelf from "./Shelf.js"
+import { Link } from 'react-router-dom'
 
 
 import './App.css'
@@ -23,7 +24,9 @@ class Shelfs extends React.Component {
             <Shelf books={read}  bookshelfTitle="Read" changeCategory={this.props.changeCategory}/>
         </div></div>
         <div className="open-search">
-          <a>Add a book</a>
+          <Link
+            to='/search'
+          >Add Book</Link>
         </div>
       </div>
     );
